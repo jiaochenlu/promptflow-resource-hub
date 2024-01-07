@@ -4,6 +4,28 @@
     <title>Use Case</title>
     <!-- Add Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .card {
+            height: 200px;
+            transition: box-shadow .3s, border .3s;
+            cursor: pointer;  
+        }
+        .card:hover {
+            box-shadow: 0 0 11px rgba(33,33,33,.2); 
+            border: 1px solid blue;
+        }
+        .card-title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .card-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,13 +34,13 @@
 
     <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4 shadow-sm">
+            <div class="card mb-4 shadow-sm" onclick="window.open('https://github.com/microsoft/promptflow/blob/main/examples/tutorials/e2e-development/chat-with-pdf.md', '_blank');">
                 <div class="card-body">
-                    <h5 class="card-title">Chat with your PDF</h5>
-                    <p class="card-text">Chat with your PDF</p>
+                    <h5 class="card-title" data-toggle="tooltip" title="Chat With PDF">Chat With PDF</h5>
+                    <p class="card-text" data-toggle="tooltip" title="chat with pdf">chat with pdf</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='github.com/microsoft/promptflow/blob/main/examples/tutorials/e2e-development/chat-with-pdf.md';">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.open('https://github.com/microsoft/promptflow/blob/main/examples/tutorials/e2e-development/chat-with-pdf.md', '_blank');">View</button>
                         </div>
                     </div>
                 </div>
@@ -26,13 +48,13 @@
         </div>
 
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4 shadow-sm">
+            <div class="card mb-4 shadow-sm" onclick="window.open('https://github.com/microsoft/promptflow-resource-hub/blob/main/sample_gallery/evaluate_semantic_kernel_planner/Tutorial.md', '_blank');">
                 <div class="card-body">
-                    <h5 class="card-title">Evaluate semantic kernel planner</h5>
-                    <p class="card-text">Evaluate semantic kernel planner</p>
+                    <h5 class="card-title" data-toggle="tooltip" title="Evaluate semantic kernel planner">Evaluate semantic kernel planner</h5>
+                    <p class="card-text" data-toggle="tooltip" title="evaluate semantic kernel planner">evaluate semantic kernel planner</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='github.com/microsoft/promptflow-resource-hub/blob/main/sample_gallery/evaluate_semantic_kernel_planner/Tutorial.md';">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.open('https://github.com/microsoft/promptflow-resource-hub/blob/main/sample_gallery/evaluate_semantic_kernel_planner/Tutorial.md', '_blank');">View</button>
                         </div>
                     </div>
                 </div>
@@ -40,13 +62,13 @@
         </div>
 
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4 shadow-sm">
+            <div class="card mb-4 shadow-sm" onclick="window.open('https://github.com/microsoft/promptflow-resource-hub/blob/main/sample_gallery/database_querying/cosmosdb_postgresql/Tutorial.md', '_blank');">
                 <div class="card-body">
-                    <h5 class="card-title">Personalized financial advise(data query from CosmosDB)</h5>
-                    <p class="card-text">Personalized financial advise(data query from CosmosDB)</p>
+                    <h5 class="card-title" data-toggle="tooltip" title="Personalized financial advise(data query from CosmosDB)">Personalized financial advise(data query from CosmosDB)</h5>
+                    <p class="card-text" data-toggle="tooltip" title="Personalized financial advise(data query from CosmosDB)">Personalized financial advise(data query from CosmosDB)</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='github.com/microsoft/promptflow-resource-hub/blob/main/sample_gallery/database_querying/cosmosdb_postgresql/Tutorial.md';">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.open('https://github.com/microsoft/promptflow-resource-hub/blob/main/sample_gallery/database_querying/cosmosdb_postgresql/Tutorial.md', '_blank');">View</button>
                         </div>
                     </div>
                 </div>
@@ -62,6 +84,12 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 
 </body>
 </html>
