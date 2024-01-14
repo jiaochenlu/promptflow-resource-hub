@@ -193,8 +193,14 @@ $(document).ready(function(){
 
 <script>
 // 这段代码将在页面加载时直接运行
+
+var initialCards; 
+
 $(window).on('load', function(){
+
+
     $('[data-toggle="tooltip"]').tooltip();
+    initialCards = $('<div class="row"></div>');  
 
     var tags = [];  
     $('.card').each(function() {  
@@ -217,6 +223,9 @@ $(window).on('load', function(){
         }
     });
 
+    // 存储页面加载时的初始状态  
+    initialCards = $('#card-container').clone();  
+
     tags.forEach(function(tag) {
         var tagElement = $('<button class="btn btn-outline-secondary mr-2 mb-2">' + tag + '</button>');
         tagElement.click(function() {
@@ -232,12 +241,17 @@ $(window).on('load', function(){
             return $(this).text();
         }).get();
 
+         // 将原有的容器替换为新的容器  
+        $('#card-container').replaceWith(initialCards.clone());
+
         if (selectedTags.length === 0) {
             // 如果没有标签被选中，则显示所有卡片
             $('.card').show();
         } else {
             // 如果有标签被选中，先隐藏所有卡片
             $('.card').hide();
+
+            var filteredCardContainer = $('<div id="card-container" class="row"></div>');  
 
             // 然后显示与选中标签匹配的卡片
             $('.card').each(function() {
@@ -247,10 +261,15 @@ $(window).on('load', function(){
                     if (selectedTags.every(function(tag) {
                         return cardTags.includes(tag);
                     })) {
-                        $(this).show();
+                        var tmpContainer = $('<div class="col-lg-4 col-md-6 col-sm-12"></div>');
+                        tmpContainer.append($(this).clone().show());
+                        filteredCardContainer.append(tmpContainer.clone().show());  
                     }
                 }
             });
+
+            $('#card-container').replaceWith(filteredCardContainer.clone());
+
         }
     }
 
